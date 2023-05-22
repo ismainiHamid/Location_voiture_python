@@ -1,0 +1,124 @@
+{% extends 'main.html' %}
+{% block content %}
+
+    <!--== Slider Area Start ==-->
+    <section id="slider-area">
+        <!--== slide Item One ==-->
+        <div class="single-slide-item overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="book-a-car">
+                            <form action="#">
+                                <!--== Pick Up Date ==-->
+                                <div class=" book-item">
+                                    <h4>PICK-UP DATE:</h4>
+                                    <input type="date" value="{{ datePickUp }}" name="startDate" disabled/>
+
+                                    <div class="return-car">
+                                        <h4>Return DATE:</h4>
+                                        <input type="text" value="{{ dateReturn }}" name="endDate" disabled/>
+                                    </div>
+                                </div>
+                                <!--== Pick Up Location ==-->
+
+                                <!--== Pick Up Location ==-->
+                                <div class="pickup-location book-item">
+                                    <h4>PICK-UP LOCATION:</h4>
+                                    <select class="custom-select" disabled>
+                                        <option selected>{{ locationPickUp }}</option>
+                                        <option value="Dhaka">Dhaka</option>
+                                        <option value="Comilla">Comilla</option>
+                                    </select>
+                                </div>
+                                <!--== Pick Up Location ==-->
+
+                                <!--== Return Location ==-->
+                                <div class="pickup-location book-item">
+                                    <h4>RETURN LOCATION:</h4>
+                                    <select class="custom-select" disabled>
+                                        <option selected>{{ locationReturn }}</option>
+                                        <option value="Dhaka">Dhaka</option>
+                                        <option value="Comilla">Comilla</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7 text-right">
+                        <div class="display-table">
+                            <div class="display-table-cell">
+                                <div class="slider-right-text">
+                                    <h1>BOOK A CAR TODAY!</h1>
+                                    <p>FOR AS LOW AS $10 A DAY PLUS 15% DISCOUNT <br> FOR OUR RETURNING CUSTOMERS</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--== slide Item One ==-->
+    </section>
+    <!--== Slider Area End ==-->
+
+    <div class="contact-page-wrao section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 m-auto">
+                    <div class="contact-form">
+                        <form action="{% url 'reservationSend' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="name-input">
+                                        <input type="text" name="firstName" placeholder="First name">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="email-input">
+                                        <input type="text" name="lastName" placeholder="Last name">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="website-input">
+                                        <input type="email" name="email" placeholder="Email">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="subject-input">
+                                        <input type="text" name="phone" placeholder="Phone number">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="website-input">
+                                        <input type="text" name="cine" placeholder="CINE">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="subject-input">
+                                        <input type="text" name="drive" placeholder="Driving license">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="input-submit">
+                                <button type="submit">Make a Reservation</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'main.html' %}
+{% block content %}
+
+    <!--== Page Title Area Start ==-->
+    <section id="page-title-area" class="section-padding overlay">
+        <div class="container">
+            <div class="row">
+                <!-- Page Title Start -->
+                <div class="col-lg-12">
+                    <div class="section-title  text-center">
+                        <h2>{{ blog_details.titre }}</h2>
+                        <span class="title-line"><i class="fa fa-car"></i></span>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+                <!-- Page Title End -->
+            </div>
+        </div>
+    </section>
+    <!--== Page Title Area End ==-->
+
+    <!--== Car List Area Start ==-->
+    <section id="car-list-area" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <!-- Car List Content Start -->
+                <div class="col-lg-8">
+                    <div class="car-details-content">
+                        <h2 class="text-uppercase">{{ blog_details.titre }}</h2>
+                        <div class="single-car-preview">
+                            <img src="../{{ blog_details.image }}" alt="JSOFT">
+                        </div>
+                        <div class="car-details-info blog-content text-justify">
+                            <p>{{ blog_details.content }}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Car List Content End -->
+
+                <!-- Sidebar Area Start -->
+                <div class="col-lg-4">
+                    <div class="sidebar-content-wrap m-t-50">
+                        <!-- Single Sidebar Start -->
+                        <div class="single-sidebar">
+                            <h3>For More Informations</h3>
+
+                            <div class="sidebar-body">
+                                <p><i class="fa fa-mobile"></i> +212 643 435 886</p>
+                                <p><i class="fa fa-clock-o"></i> Mon - Fri 08:00 - 18:00</p>
+                            </div>
+                        </div>
+                        <!-- Single Sidebar End -->
+
+                        <!-- Single Sidebar Start -->
+                        <div class="single-sidebar">
+                            <h3>Rental Tips</h3>
+
+                            {% if blog_side %}
+                                <div class="sidebar-body">
+                                    <ul class="recent-tips">
+                                        {% for article in blog_side %}
+                                            <li class="single-recent-tips">
+                                                <div class="recent-tip-thum">
+                                                    <a href="#">
+                                                        <img src="../{{ article.image }}" alt="JSOFT">
+                                                    </a>
+                                                </div>
+                                                <div class="recent-tip-body">
+                                                    <h4><a href="{% url 'blog' article.id %}">{{ article.titre }}</a>
+                                                    </h4>
+                                                    <span class="date">{{ article.date|date:'M, d, y' }}</span>
+                                                </div>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <!-- Single Sidebar End -->
+
+                    </div>
+                </div>
+                <!-- Sidebar Area End -->
+            </div>
+        </div>
+    </section>
+    <!--== Car List Area End ==-->
+
+{% endblock %}
