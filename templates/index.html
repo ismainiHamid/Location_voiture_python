@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="book-a-car">
-                            <form action="{% url 'search' %}" method="POST" >
+                            <form action="{% url 'search' %}" method="POST">
                                 {% csrf_token %}
                                 <!--== Pick Up Date ==-->
                                 <div class=" book-item">
@@ -31,9 +31,8 @@
                                 <div class="pickup-location book-item">
                                     <h4>PICK-UP LOCATION:</h4>
                                     <select class="custom-select" name="startLocation" required>
-                                        <option selected>Select</option>
-                                        <option value="Dhaka">Dhaka</option>
-                                        <option value="Comilla">Comilla</option>
+                                        <option value="Aireport">Aireport</option>
+                                        <option value="DownTown">DownTown</option>
                                     </select>
                                 </div>
                                 <!--== Pick Up Location ==-->
@@ -42,9 +41,8 @@
                                 <div class="pickup-location book-item">
                                     <h4>RETURN LOCATION:</h4>
                                     <select class="custom-select" name="endLocation" required>
-                                        <option selected>Select</option>
-                                        <option value="Dhaka">Dhaka</option>
-                                        <option value="Comilla">Comilla</option>
+                                        <option value="DownTown">DownTown</option>
+                                        <option value="Aireport">Aireport</option>
                                     </select>
                                 </div>
                                 <!--== Return Location ==-->

@@ -5,10 +5,10 @@ from django.db import models
 class Client(models.Model):
     nom = models.CharField(max_length=50)
     prenom = models.CharField(max_length=50)
-    cin = models.CharField(max_length=10)
-    permis = models.CharField(max_length=10)
+    cin = models.CharField(max_length=50)
+    permis = models.CharField(max_length=50)
     email = models.CharField(max_length=150)
-    telephone = models.CharField(max_length=16)
+    telephone = models.CharField(max_length=50)
 
 
 class Vehicule(models.Model):
@@ -25,8 +25,8 @@ class Vehicule(models.Model):
 class Reservation(models.Model):
     Client = models.ForeignKey(Client, on_delete=models.CASCADE)
     Vehicule = models.ForeignKey(Vehicule, on_delete=models.CASCADE)
-    dateDebut = models.DateField(auto_now_add=True, null=True)
-    dateFin = models.DateField(auto_now_add=True, null=True)
+    dateDebut = models.DateField(null=True)
+    dateFin = models.DateField(null=True)
     depart = models.CharField(max_length=100)
     retour = models.CharField(max_length=100)
 
